@@ -50,6 +50,16 @@ public class AssignmentsDueTest {
 
     }
 
+    @Test
+    public void testForRemoveAssignmentNoneRemovedCase(){
+        testAssignmentsDue.addAssignment(testAssignment1);
+        testAssignmentsDue.addAssignment(testAssignment2);
+        testAssignmentsDue.removeCompletedAssignment();
+        assertEquals(2, testAssignmentsDue.getAssignmentNames().size());
+        assertTrue(testAssignmentsDue.getAssignmentNames().contains("Midterm"));
+        assertTrue(testAssignmentsDue.getAssignmentNames().contains("Project"));
+    }
+
 
 
 }
