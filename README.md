@@ -17,6 +17,5 @@ for students as it will be helpful for them to keep track of assignments and sch
 ## User Stories
 - As a user, I want to be able to create a assignment and add it to a list of assignments. 
 - As a user, I want to be able to select a subject and see assignments due for that subject only.
-- As a user, I want to be able to see a list of assignments in order of date and time due.
-- As a user, I want to be able to remove or reschedule existing assignments.
+- As a user, I want to be able to reschedule existing assignments.
 - As a user, I want to be able to mark assignments as completed.
