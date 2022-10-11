@@ -1,21 +1,19 @@
 # CPSC 210 Term Project
 
-## School Calendar
+## Music Playlist Creator
 
- For my term project I want to create an application to 
-track assignments and to set reminders. I want my
-application to be able to categorize assignments by their corresponding
-subjects and to be able to sort them by their due dates/times. I would also like my application to set
-reminders for projects due within a week, and to be able to
-remove assignments and reminders in which their due dates have already passed. My application should also 
-be  able to mark assignments as completed and to be able to track reoccurring assignments.
- Overall my application is intended
-for students as it will be helpful for them to keep track of assignments and schedules.
- And so, this is of interest to me as I am a student, and I'm hoping that I will be able to use this application
- myself.
- 
+For my term project I will create a music playlist creator intended for users
+to create and save new playlists. Users will be able to add songs to a playlist
+and retrieve information about individual songs and rank them on scale out of five.
+The music playlist creators will save these rankings for future
+reference to help users track which songs they like and dislike. The music playlist
+creator is intended for anyone who enjoys music and who may want to keep
+track of their favourite songs, and easily create and save playlists. I chose to create this 
+Music Playlist Creator because I am constantly listening to music and I would love a way
+to sort and rank the songs im listening too!
+
 ## User Stories
-- As a user, I want to be able to create a assignment and add it to a list of assignments. 
-- As a user, I want to be able to select a subject and see assignments due for that subject only.
-- As a user, I want to be able to reschedule existing assignments.
-- As a user, I want to be able to mark assignments as completed.
+- As a user, I want to be able to add a song to a playlist
+- As a user, I want to be able to view names of all songs in a playlist
+- As a user, I want to be able to select a song and see information about that song
+- As a user, I want to be able to rate a song on a scale of one to five stars
