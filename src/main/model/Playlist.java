@@ -17,24 +17,30 @@ public class Playlist {
 
     // MODIFIES: this
     // EFFECTS: adds song to playlist
+    // REQUIRES: no song name duplicates
     public void addSong(Song song) {
         songs.add(song);
         names.add(song.getName());
     }
 
     // MODIFIES: this
-    // EFFECTS: removes song
-    public void removeSong(Song song) {
-        songs.remove(song);
-        names.remove(song.getName());
+    // EFFECTS: removes song with name from playlist
+    public void removeSong(String name) {
+        for (Song s: songs) {
+            if (s.getName().equals(name)) {
+                songs.remove(s);
+                names.remove(s.getName());
+                break;
+            }
+        }
     }
 
-    // EFFECTS: selects song in playlist and shows information about song in format
+    // EFFECTS: selects song from name in playlist and shows information about song in format
     // Name : Artist : Genre : Ranking
-    public String selectSong(Song song) {
+    public String selectSong(String name) {
         String str = "";
         for (Song s: songs) {
-            if (s == song) {
+            if (s.getName().equals(name)) {
                 str = s.getName() + ": " + s.getArtist() + ": " + s.getGenre() + ": " + s.getRanking();
             }
         }
@@ -44,9 +50,9 @@ public class Playlist {
     // REQUIRES: 0 <= ranking >= 5
     // MODIFIES: this
     // EFFECTS: changes ranking of song
-    public void selectSongAndChangeRank(Song song, Integer ranking) {
+    public void selectSongAndChangeRank(String name, Integer ranking) {
         for (Song s: songs) {
-            if (s == song) {
+            if (s.getName().equals(name)) {
                 s.changeRanking(ranking);
             }
         }

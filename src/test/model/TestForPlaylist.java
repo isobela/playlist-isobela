@@ -35,18 +35,22 @@ public class TestForPlaylist {
     public void testForRemoveSong() {
         testPlaylist.addSong(song1);
         testPlaylist.addSong(song2);
-        testPlaylist.removeSong(song2);
+        assertEquals(2, testPlaylist.getSongNames().size());
+        System.out.println(testPlaylist.getSongNames());
+        testPlaylist.removeSong("Chateau");
         assertEquals(1, testPlaylist.getSongNames().size());
-        testPlaylist.removeSong(song1);
+        System.out.println(testPlaylist.getSongNames());
+        System.out.println(song2.getName());
+        System.out.println(song2.getName().equals("Oh! You Pretty Things"));
+        testPlaylist.removeSong(song2.getName());
         assertEquals(0, testPlaylist.getSongNames().size());
-
     }
 
     @Test
     public void testForSelectSong() {
         testPlaylist.addSong(song1);
-        assertEquals("Chateau: Djo: Alternative: 5", testPlaylist.selectSong(song1));
-        assertEquals("", testPlaylist.selectSong(song2));
+        assertEquals("Chateau: Djo: Alternative: 5", testPlaylist.selectSong("Chateau"));
+        assertEquals("", testPlaylist.selectSong("Random song"));
     }
 
 
@@ -54,9 +58,9 @@ public class TestForPlaylist {
     public void testForSelectSongAndChangeRank() {
         assertEquals(5, song1.getRanking());
         testPlaylist.addSong(song1);
-        testPlaylist.selectSongAndChangeRank(song1, 4);
+        testPlaylist.selectSongAndChangeRank("Chateau", 4);
         assertEquals(4, song1.getRanking());
-        testPlaylist.selectSongAndChangeRank(song2, 0);
+        testPlaylist.selectSongAndChangeRank("Oh! You Pretty Things", 0);
         assertEquals(5, song2.getRanking());
     }
 
