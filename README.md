@@ -3,12 +3,12 @@
 ## Music Playlist Creator
 
 For my term project I will create a music playlist creator intended for users
-to create and save new playlists. Users will be able to add songs to a playlist
+to create and save a playlist. Users will be able to add songs to a playlist
 and retrieve information about individual songs and rank them on scale out of five.
-The music playlist creators will save these rankings for future
+The music playlist creator will save users song rankings for future
 reference to help users track which songs they like and dislike. The music playlist
 creator is intended for anyone who enjoys music and who may want to keep
-track of their favourite songs, and easily create and save playlists. I chose to create this 
+track of their favourite songs. I chose to create this 
 Music Playlist Creator because I am constantly listening to music and I would love a way
 to sort and rank the songs im listening too!
 

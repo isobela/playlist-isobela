@@ -32,34 +32,47 @@ public class TestForPlaylist {
     }
 
     @Test
-    public void testForRemoveSong() {
+    public void testForRemoveSongInPlaylist() {
         testPlaylist.addSong(song1);
         testPlaylist.addSong(song2);
-        assertEquals(2, testPlaylist.getSongNames().size());
-        System.out.println(testPlaylist.getSongNames());
         testPlaylist.removeSong("Chateau");
         assertEquals(1, testPlaylist.getSongNames().size());
-        System.out.println(testPlaylist.getSongNames());
-        System.out.println(song2.getName());
-        System.out.println(song2.getName().equals("Oh! You Pretty Things"));
+        assertEquals(song2.getName(), testPlaylist.getSongNames().get(0));
         testPlaylist.removeSong(song2.getName());
         assertEquals(0, testPlaylist.getSongNames().size());
     }
 
     @Test
-    public void testForSelectSong() {
+    public void testForRemoveSongNotInPlaylist() {
+        testPlaylist.addSong(song1);
+        testPlaylist.removeSong(song2.getName());
+        assertEquals(1, testPlaylist.getSongNames().size());
+        assertEquals(song1.getName(), testPlaylist.getSongNames().get(0));
+
+
+    }
+
+    @Test
+    public void testForSelectSongInPlaylist() {
         testPlaylist.addSong(song1);
         assertEquals("Chateau: Djo: Alternative: 5", testPlaylist.selectSong("Chateau"));
+    }
+
+    @Test
+    public void testForSelectSongNotInPlaylist() {
         assertEquals("", testPlaylist.selectSong("Random song"));
     }
 
 
     @Test
-    public void testForSelectSongAndChangeRank() {
-        assertEquals(5, song1.getRanking());
+    public void testForSelectSongAndChangeRankSongInPlaylist() {
         testPlaylist.addSong(song1);
         testPlaylist.selectSongAndChangeRank("Chateau", 4);
         assertEquals(4, song1.getRanking());
+    }
+
+    @Test
+    public void testForSelectSongAndChangeRankSongNotInPlaylist() {
         testPlaylist.selectSongAndChangeRank("Oh! You Pretty Things", 0);
         assertEquals(5, song2.getRanking());
     }

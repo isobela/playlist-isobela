@@ -10,7 +10,8 @@ public class TestForSong {
 
     @BeforeEach
     public void setup() {
-        testSong = new Song("What Would I Do?", "Strawberry Guy", "Alternative", 3);
+        testSong = new Song("What Would I Do?",
+                "Strawberry Guy", "Alternative", 3);
     }
 
     @Test
