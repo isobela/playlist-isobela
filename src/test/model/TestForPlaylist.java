@@ -19,7 +19,6 @@ public class TestForPlaylist {
 
     @Test
     public void testForConstructor() {
-        assertEquals("study playlist", testPlaylist.getPlaylistName());
         assertEquals(0, testPlaylist.getSongNames().size());
     }
 
@@ -60,6 +59,8 @@ public class TestForPlaylist {
 
     @Test
     public void testForSelectSongNotInPlaylist() {
+        testPlaylist.addSong(song1);
+        testPlaylist.addSong(song2);
         assertEquals("", testPlaylist.selectSong("Random song"));
     }
 
@@ -73,6 +74,7 @@ public class TestForPlaylist {
 
     @Test
     public void testForSelectSongAndChangeRankSongNotInPlaylist() {
+        testPlaylist.addSong(song1);
         testPlaylist.selectSongAndChangeRank("Oh! You Pretty Things", 0);
         assertEquals(5, song2.getRanking());
     }

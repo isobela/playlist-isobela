@@ -3,24 +3,20 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a playlist with its songs.
 public class Playlist {
-    private String name;
     private List<Song> songs;
-    private List<String> names;
 
-    // EFFECTS: constructs an empty collection of songs with name
+    // EFFECTS: constructs an empty collection of songs with their names
     public Playlist(String name) {
-        this.name = name;
         songs = new ArrayList<>();
-        names = new ArrayList<>();
     }
 
     // MODIFIES: this
     // EFFECTS: adds song to playlist
-    // REQUIRES: no song name duplicates
+    // REQUIRES: no song name duplicates 
     public void addSong(Song song) {
         songs.add(song);
-        names.add(song.getName());
     }
 
     // MODIFIES: this
@@ -29,7 +25,6 @@ public class Playlist {
         for (Song s: songs) {
             if (s.getName().equals(name)) {
                 songs.remove(s);
-                names.remove(s.getName());
                 break;
             }
         }
@@ -58,14 +53,16 @@ public class Playlist {
         }
     }
 
-
+    // EFFECTS: returns names of songs in playlist
     public List<String> getSongNames() {
-        return names;
+        List<String> songNames = new ArrayList<>();
+        for (Song s: songs) {
+            songNames.add(s.getName());
+        }
+        return songNames;
     }
 
-    public String getPlaylistName() {
-        return name;
-    }
+
 
 
 
