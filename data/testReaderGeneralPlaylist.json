@@ -1,0 +1,18 @@
+{
+  "songs" : [
+    {
+      "name": "Good News",
+      "artist": "Mac Miller",
+      "genre": "Pop",
+      "ranking": 5
+
+    },
+
+    {
+      "name": "Free Time",
+      "artist": "Ruel",
+      "genre": "Chill",
+      "ranking": 4
+    }
+  ]
+}

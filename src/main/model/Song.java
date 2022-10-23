@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // represents a song with its name, artist, genre and ranking out of five stars
-public class Song {
+public class Song implements Writable {
     private String name;
     private String artist;
     private String genre;
@@ -37,6 +40,16 @@ public class Song {
 
     public Integer getRanking() {
         return ranking;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("artist", artist);
+        json.put("genre", genre);
+        json.put("ranking", ranking);
+        return json;
     }
 
 

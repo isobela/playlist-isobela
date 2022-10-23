@@ -3,7 +3,11 @@ package ui;
 
 import model.Playlist;
 import model.Song;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Playlist Application
@@ -11,8 +15,15 @@ public class PlaylistApp {
     private Scanner scan;
     private Playlist playlist;
 
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
+    private static final String JSON_STORE = "./data/workroom.json";
+
     // EFFECTS: runs playlist application
     public PlaylistApp() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runPlaylistApp();
     }
 
@@ -44,7 +55,7 @@ public class PlaylistApp {
     // MODIFIES: this
     // EFFECTS: initializes playlist
     private void init() {
-        playlist = new Playlist("playlist");
+        playlist = new Playlist();
         scan = new Scanner(System.in);
         scan.useDelimiter("\n");
     }
@@ -58,6 +69,8 @@ public class PlaylistApp {
         System.out.println("\ns -> select song");
         System.out.println("\nr -> select song and change rank");
         System.out.println("\nd -> delete song from playlist");
+        System.out.println("\nb-> save playlist to file");
+        System.out.println("\nl -> load playlist from file");
         System.out.println("\nq -> quit");
     }
 
@@ -74,6 +87,10 @@ public class PlaylistApp {
             selectSongChangeRankOption();
         } else if (command.equals("d")) {
             deleteSong();
+        } else if (command.equals("b")) {
+            savePlaylist();
+        } else if (command.equals("l")) {
+            loadPlaylist();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -137,6 +154,29 @@ public class PlaylistApp {
         Integer ranking = scan.nextInt();
         playlist.selectSongAndChangeRank(songName, ranking);
         System.out.print("Rank was changed!");
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void savePlaylist() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(playlist);
+            jsonWriter.close();
+            System.out.println("Saved playlist to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadPlaylist() {
+        try {
+            playlist = jsonReader.read();
+            System.out.println("Loaded playlist from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 

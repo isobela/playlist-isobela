@@ -12,7 +12,7 @@ public class TestForPlaylist {
 
     @BeforeEach
     public void setup() {
-        testPlaylist = new Playlist("study playlist");
+        testPlaylist = new Playlist();
         song1 = new Song("Chateau", "Djo", "Alternative", 5);
         song2 = new Song ("Oh! You Pretty Things", "David Bowie", "Pop", 5);
     }
