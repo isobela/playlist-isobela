@@ -19,5 +19,4 @@ to sort and rank the songs im listening too!
 - As a user, I want to be able to rate a song on a scale of one to five stars
 - As a user, I want to be able to save my playlist to a file
 - As a user, I want the option to be able to load my playlist from file
-- As a user, when I select quit from the main menu I want to be reminded to save my playlist
- and have the option to do so or not
+- As a user, I want to be able to save a playlist to file.
