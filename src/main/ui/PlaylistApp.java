@@ -18,7 +18,7 @@ public class PlaylistApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/playlist.json";
 
     // EFFECTS: runs playlist application
     public PlaylistApp() {
@@ -156,7 +156,7 @@ public class PlaylistApp {
         System.out.print("Rank was changed!");
     }
 
-    // EFFECTS: saves the workroom to file
+    // EFFECTS: saves the playlist to file
     private void savePlaylist() {
         try {
             jsonWriter.open();
@@ -169,7 +169,7 @@ public class PlaylistApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads playlist from file
     private void loadPlaylist() {
         try {
             playlist = jsonReader.read();
