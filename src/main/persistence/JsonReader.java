@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+// referred to https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git for JsonReader
 public class JsonReader {
     private String source;
 

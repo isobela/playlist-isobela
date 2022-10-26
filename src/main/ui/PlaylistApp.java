@@ -156,6 +156,7 @@ public class PlaylistApp {
         System.out.print("Rank was changed!");
     }
 
+    // referred to https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     // EFFECTS: saves the playlist to file
     private void savePlaylist() {
         try {
@@ -168,6 +169,7 @@ public class PlaylistApp {
         }
     }
 
+    // referred to https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     // MODIFIES: this
     // EFFECTS: loads playlist from file
     private void loadPlaylist() {
