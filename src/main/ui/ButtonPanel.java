@@ -57,4 +57,12 @@ public class ButtonPanel extends JPanel {
     public JButton getDeleteSong() {
         return deleteSong;
     }
+
+    public JButton getSavePlaylist() {
+        return savePlaylist;
+    }
+
+    public JButton getLoadPlaylist() {
+        return loadPlaylist;
+    }
 }

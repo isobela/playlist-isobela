@@ -1,11 +1,9 @@
 package ui;
 
-import model.Playlist;
 import model.Song;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -17,11 +15,14 @@ public class AppFrame extends JFrame {
     private JButton deleteSong;
 
     private SongPanel songPanel;
+    private JButton save;
+    private JButton load;
+    private SongInfo song;
 
 
     // constructor
     public AppFrame() {
-        this.setSize(400,700);
+        this.setSize(400, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
@@ -31,8 +32,6 @@ public class AppFrame extends JFrame {
         songPanel = new SongPanel();
 
 
-
-
         this.add(title, BorderLayout.NORTH);
         this.add(btnPanel, BorderLayout.SOUTH);
         this.add(playlist, BorderLayout.CENTER);
@@ -40,16 +39,48 @@ public class AppFrame extends JFrame {
 
         addSong = btnPanel.getAddSong();
         deleteSong = btnPanel.getDeleteSong();
+        save = btnPanel.getSavePlaylist();
+        load = btnPanel.getLoadPlaylist();
 
-        addListners();
+        addListeners();
+
     }
 
-    public void addListners() {
+
+    public void addListeners() {
         addSong.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                song = new SongInfo(songPanel);
+                playlist.add(song);
+                revalidate();
+            }
+        });
+        deleteSong.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playlist.removeSelected();
+                repaint();
 
             }
         });
+        save.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playlist.saveList();
+            }
+        });
+        load.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playlist.loadList();
+                updatePlaylist();
+                revalidate();
+            }
+        });
+    }
+
+    public void updatePlaylist() {
+        this.add(playlist, BorderLayout.CENTER);
     }
 }
