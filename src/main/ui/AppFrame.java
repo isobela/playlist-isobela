@@ -1,7 +1,5 @@
 package ui;
 
-import model.Song;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -42,12 +40,13 @@ public class AppFrame extends JFrame {
         save = btnPanel.getSavePlaylist();
         load = btnPanel.getLoadPlaylist();
 
-        addListeners();
+        addAndDelete();
+        saveAndLoad();
 
     }
 
 
-    public void addListeners() {
+    public void addAndDelete() {
         addSong.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -64,6 +63,9 @@ public class AppFrame extends JFrame {
 
             }
         });
+    }
+
+    public void saveAndLoad() {
         save.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -78,6 +80,7 @@ public class AppFrame extends JFrame {
                 revalidate();
             }
         });
+
     }
 
     public void updatePlaylist() {
