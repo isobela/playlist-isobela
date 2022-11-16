@@ -40,6 +40,7 @@ public class AppFrame extends JFrame {
         save = btnPanel.getSavePlaylist();
         load = btnPanel.getLoadPlaylist();
 
+
         addAndDelete();
         saveAndLoad();
 
@@ -52,6 +53,7 @@ public class AppFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 song = new SongInfo(songPanel);
                 playlist.add(song);
+                new DisplayImage();
                 revalidate();
             }
         });
