@@ -20,3 +20,10 @@ to sort and rank the songs im listening too!
 - As a user, I want to be able to save my playlist to a file
 - As a user, I want the option to be able to load my playlist from file
 - As a user, I want to be able to save a playlist to file.
+
+## Instructions for Grader
+- You can generate the first required event related to adding Xs to a Y by clicking the add song 
+button which adds song with the information inputted by user on side panel.
+- 
+
+

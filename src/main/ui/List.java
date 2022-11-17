@@ -39,6 +39,22 @@ public class List extends JPanel {
         }
     }
 
+    public void changeRanks(String rank) {
+        for (Component c: getComponents()) {
+            if (c instanceof SongInfo) {
+                if (((SongInfo) c).isSelected()) {
+                    SongPanel sp = new SongPanel();
+                    sp.setSongPanel(((SongInfo) c).getSongName(),((SongInfo) c).getSongArtist(),
+                            ((SongInfo) c).getSongGenre(), Integer.parseInt(rank));
+                    SongInfo song = new SongInfo(sp);
+                    int index = this.getComponentZOrder(c);
+                    this.add(song, index);
+                    this.remove(c);
+                }
+            }
+        }
+    }
+
     public Playlist createPlaylist() {
         playlist = new Playlist();
         for (Component c: getComponents()) {

@@ -74,8 +74,10 @@ public class SongInfo extends JPanel {
         });
     }
 
-    public void setSong(String name, String artist, String genre, int rank) {
-
+    public void setRank(String rank) {
+        songRank = rank;
     }
+
+
 }
 

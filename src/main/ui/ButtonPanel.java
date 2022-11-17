@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 public class ButtonPanel extends JPanel {
     private JButton addSong;
     private JButton deleteSong;
+    private JButton changeRank;
     private JButton savePlaylist;
     private JButton loadPlaylist;
 
@@ -39,6 +40,13 @@ public class ButtonPanel extends JPanel {
         savePlaylist.setBorder(emptyBorder);
         savePlaylist.setFont(font);
 
+        changeRank = new JButton("Change Rank");
+        changeRank.setBorder(emptyBorder);
+        changeRank.setFont(font);
+
+        this.add(changeRank);
+
+
         this.add(savePlaylist);
 
         loadPlaylist = new JButton("Load Playlist");
@@ -64,5 +72,9 @@ public class ButtonPanel extends JPanel {
 
     public JButton getLoadPlaylist() {
         return loadPlaylist;
+    }
+
+    public JButton getChangeRank() {
+        return changeRank;
     }
 }

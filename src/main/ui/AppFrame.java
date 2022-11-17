@@ -11,6 +11,7 @@ public class AppFrame extends JFrame {
     private ButtonPanel btnPanel;
     private JButton addSong;
     private JButton deleteSong;
+    private JButton changeRank;
 
     private SongPanel songPanel;
     private JButton save;
@@ -23,6 +24,7 @@ public class AppFrame extends JFrame {
         this.setSize(400, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+
 
         title = new TitleBar();
         btnPanel = new ButtonPanel();
@@ -37,12 +39,14 @@ public class AppFrame extends JFrame {
 
         addSong = btnPanel.getAddSong();
         deleteSong = btnPanel.getDeleteSong();
+        changeRank = btnPanel.getChangeRank();
         save = btnPanel.getSavePlaylist();
         load = btnPanel.getLoadPlaylist();
 
 
         addAndDelete();
         saveAndLoad();
+        changeSelectedRank();
 
     }
 
@@ -85,7 +89,24 @@ public class AppFrame extends JFrame {
 
     }
 
+    public void changeSelectedRank() {
+        changeRank.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                DialogBox db = new DialogBox();
+                playlist.changeRanks(db.getUserResponse());
+                updatePlaylist();
+                revalidate();
+            }
+        });
+
+    }
+
     public void updatePlaylist() {
         this.add(playlist, BorderLayout.CENTER);
     }
+
+
+
+
 }
