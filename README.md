@@ -22,8 +22,12 @@ to sort and rank the songs im listening too!
 - As a user, I want to be able to save a playlist to file.
 
 ## Instructions for Grader
-- You can generate the first required event related to adding Xs to a Y by clicking the add song 
-button which adds song with the information inputted by user on side panel.
-- 
+- You can generate the first required event related to adding Xs to a Y by clicking select song and pressing delete
+song to delete the song from playlist. You can delete more than one song at a time.
+- You can generate the second required event related to adding Xs to a Y by selecting a song and clicking Change Rank,
+to change the rank of selected song. You can select and change rank for more than one song.
+- You can locate the visual component by clicking the add song button.
+- You can save the state of my application by clicking Save Playlist.
+- You can load the state of my playlist by clicking Load Playlist.
 
 

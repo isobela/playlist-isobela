@@ -9,7 +9,8 @@ public class SongPanel extends JPanel {
     private JTextField songGenre;
     private JTextField songRank;
 
-
+    // MODIFIES: this
+    // EFFECTS: constructs song panel
     public SongPanel() {
         setLayout(new GridLayout(0,1));
         this.setPreferredSize(new Dimension(250,700));
@@ -47,6 +48,8 @@ public class SongPanel extends JPanel {
         return songRank.getText();
     }
 
+    // MODIFIES: this
+    // EFFECTS: constructs song panel
     public void setSongPanel(String name, String artist, String genre, int rank) {
         songName = new JTextField(name);
         songArtist = new JTextField(artist);

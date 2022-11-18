@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class DisplayImage {
 
+    // MODIFIES: this
+    // EFFECTS: constructs image
     public DisplayImage() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

@@ -16,7 +16,8 @@ public class ButtonPanel extends JPanel {
 
     Border emptyBorder = BorderFactory.createEmptyBorder();
 
-    //Constructor
+    // MODIFIES: this
+    // EFFECTS: constructs button panel
     ButtonPanel() {
         this.setPreferredSize(new Dimension(400,60));
         this.setBackground(Color.pink);
@@ -30,7 +31,7 @@ public class ButtonPanel extends JPanel {
 
         //this.add(Box.createHorizontalStrut(20));
 
-        deleteSong = new JButton("Delete Song");
+        deleteSong = new JButton("Delete");
         deleteSong.setBorder(emptyBorder);
         deleteSong.setFont(font);
 

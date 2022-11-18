@@ -18,6 +18,8 @@ public class List extends JPanel {
 
     private static final String JSON_STORE = "./data/playlist.json";
 
+    // MODIFIES: this
+    // EFFECTS: constructs a layout for list to add components too
     public List() {
         GridLayout layout = new GridLayout(10,1);
         layout.setVgap(5);
@@ -28,10 +30,12 @@ public class List extends JPanel {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes selected component from list
     public void removeSelected() {
         for (Component c: getComponents()) {
             if (c instanceof SongInfo) {
-                if (((SongInfo) c).isSelected()) {
+                if (((SongInfo) c).getSelected()) {
                     this.remove(c);
                 }
             }
@@ -39,10 +43,12 @@ public class List extends JPanel {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: changes ranks of selected components.
     public void changeRanks(String rank) {
         for (Component c: getComponents()) {
             if (c instanceof SongInfo) {
-                if (((SongInfo) c).isSelected()) {
+                if (((SongInfo) c).getSelected()) {
                     SongPanel sp = new SongPanel();
                     sp.setSongPanel(((SongInfo) c).getSongName(),((SongInfo) c).getSongArtist(),
                             ((SongInfo) c).getSongGenre(), Integer.parseInt(rank));
@@ -55,6 +61,7 @@ public class List extends JPanel {
         }
     }
 
+    // EFFECTS: converts list to type playlist, and returns the playlist
     public Playlist createPlaylist() {
         playlist = new Playlist();
         for (Component c: getComponents()) {
@@ -66,6 +73,7 @@ public class List extends JPanel {
         return playlist;
     }
 
+    // EFFECTS: saves list
     public void saveList() {
         try {
             jsonWriter.open();
@@ -77,6 +85,7 @@ public class List extends JPanel {
         }
     }
 
+    // EFFECTS: loads saved list
     public void loadList() {
         try {
             playlist = jsonReader.read();

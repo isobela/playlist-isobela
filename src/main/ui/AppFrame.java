@@ -19,7 +19,8 @@ public class AppFrame extends JFrame {
     private SongInfo song;
 
 
-    // constructor
+    // MODIFIES: this
+    // EFFECTS: constructs app frame
     public AppFrame() {
         this.setSize(400, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +52,8 @@ public class AppFrame extends JFrame {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: adds usage to add and delete button
     public void addAndDelete() {
         addSong.addMouseListener(new MouseAdapter() {
             @Override
@@ -71,6 +74,8 @@ public class AppFrame extends JFrame {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds usage to save and load button
     public void saveAndLoad() {
         save.addMouseListener(new MouseAdapter() {
             @Override
@@ -89,6 +94,8 @@ public class AppFrame extends JFrame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds usage to change selected rank button
     public void changeSelectedRank() {
         changeRank.addMouseListener(new MouseAdapter() {
             @Override
@@ -102,10 +109,11 @@ public class AppFrame extends JFrame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: updates playlist in appframe
     public void updatePlaylist() {
         this.add(playlist, BorderLayout.CENTER);
     }
-
 
 
 

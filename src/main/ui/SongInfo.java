@@ -14,6 +14,8 @@ public class SongInfo extends JPanel {
     private JButton select;
     private boolean selected;
 
+    // MODIFIES: this
+    // EFFECTS: constructs song.
     public SongInfo(SongPanel sp) {
         songPanel = sp;
         songName = songPanel.getSongName();
@@ -32,7 +34,7 @@ public class SongInfo extends JPanel {
         selectListeners();
     }
 
-
+    // EFFECTS: returns song info
     public String getSongInfo() {
         return songPanel.getSongName() + " : " + songPanel.getSongArtist() + " : " + songPanel.getSongGenre() + " : "
                 + songPanel.getSongRank();
@@ -54,16 +56,21 @@ public class SongInfo extends JPanel {
         return songRank;
     }
 
+    // MODIFIES: this
+    // EFFECTS: turns selected to true and changes color
     public void selectSong() {
         this.setBackground(Color.CYAN);
         selected = true;
         revalidate();
     }
 
-    public boolean isSelected() {
+
+    public boolean getSelected() {
         return selected;
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds usage to select button
     public void selectListeners() {
         select.addMouseListener(new MouseAdapter() {
             @Override
@@ -74,9 +81,7 @@ public class SongInfo extends JPanel {
         });
     }
 
-    public void setRank(String rank) {
-        songRank = rank;
-    }
+
 
 
 }
