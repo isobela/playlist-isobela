@@ -11,8 +11,9 @@ import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// represents a playlist as a panel
 public class List extends JPanel {
-    private Playlist playlist;
+    private Playlist playlist = new Playlist();
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
@@ -37,6 +38,7 @@ public class List extends JPanel {
             if (c instanceof SongInfo) {
                 if (((SongInfo) c).getSelected()) {
                     this.remove(c);
+                    playlist.removeSong(((SongInfo) c).getSongName());
                 }
             }
             revalidate();
@@ -72,6 +74,17 @@ public class List extends JPanel {
         }
         return playlist;
     }
+
+    public void addSongToPanel(SongInfo song) {
+        Song songType = new Song(song.getSongName(), song.getSongArtist(),song.getSongGenre(),
+                Integer.parseInt(song.getSongRank()));
+        playlist.addSong(songType);
+        this.add(song);
+        new DisplayImage();
+        revalidate();
+    }
+
+
 
     // EFFECTS: saves list
     public void saveList() {

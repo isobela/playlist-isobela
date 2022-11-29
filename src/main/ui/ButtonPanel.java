@@ -1,18 +1,20 @@
 package ui;
 
-import javax.swing.*;
+
 import javax.swing.JButton;
 import javax.swing.border.Border;
 import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+// represents a button panel, with an add song button, delete song button, save button and load button
 public class ButtonPanel extends JPanel {
     private JButton addSong;
     private JButton deleteSong;
     private JButton changeRank;
     private JButton savePlaylist;
     private JButton loadPlaylist;
+    private JButton printLog;
 
     Border emptyBorder = BorderFactory.createEmptyBorder();
 
@@ -22,42 +24,32 @@ public class ButtonPanel extends JPanel {
         this.setPreferredSize(new Dimension(400,60));
         this.setBackground(Color.pink);
         Font font = new Font("Sans-serif",Font.PLAIN,20);
-
         addSong = new JButton("Add Song");
-        addSong.setBorder(emptyBorder);
+
         addSong.setFont(font);
-
         this.add(addSong);
-
-        //this.add(Box.createHorizontalStrut(20));
-
         deleteSong = new JButton("Delete");
-        deleteSong.setBorder(emptyBorder);
+  ;
         deleteSong.setFont(font);
-
         this.add(deleteSong);
-
         savePlaylist = new JButton("Save Playlist");
-        savePlaylist.setBorder(emptyBorder);
+
         savePlaylist.setFont(font);
-
         changeRank = new JButton("Change Rank");
-        changeRank.setBorder(emptyBorder);
+
         changeRank.setFont(font);
-
         this.add(changeRank);
-
-
         this.add(savePlaylist);
-
         loadPlaylist = new JButton("Load Playlist");
-        loadPlaylist.setBorder(emptyBorder);
+
         loadPlaylist.setFont(font);
-
         this.add(loadPlaylist);
+        printLog = new JButton("Print Log");
 
-
+        printLog.setFont(font);
+        this.add(printLog);
     }
+
 
     public JButton getAddSong() {
         return addSong;
@@ -77,5 +69,9 @@ public class ButtonPanel extends JPanel {
 
     public JButton getChangeRank() {
         return changeRank;
+    }
+
+    public JButton getPrintLog() {
+        return printLog;
     }
 }

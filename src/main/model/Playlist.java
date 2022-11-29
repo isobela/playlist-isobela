@@ -11,6 +11,7 @@ import java.util.List;
 public class Playlist implements Writable {
     private List<Song> songs;
 
+
     // EFFECTS: constructs an empty collection of songs with their names
     public Playlist() {
         songs = new ArrayList<>();
@@ -20,6 +21,7 @@ public class Playlist implements Writable {
     // EFFECTS: adds song to playlist
     // REQUIRES: no song name duplicates 
     public void addSong(Song song) {
+        EventLog.getInstance().logEvent(new Event("Added song:" + song.getName()));
         songs.add(song);
     }
 
@@ -28,6 +30,7 @@ public class Playlist implements Writable {
     public void removeSong(String name) {
         for (Song s: songs) {
             if (s.getName().equals(name)) {
+                EventLog.getInstance().logEvent(new Event("Removed song: " + name));
                 songs.remove(s);
                 break;
             }

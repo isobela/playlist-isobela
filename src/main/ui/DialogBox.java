@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
+// represents a dialog box to change rank of song.
 public class DialogBox {
     String userResponse;
 

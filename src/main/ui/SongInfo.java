@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+// represents a song with its name, artist, genre, rank and whether it is selected.
 public class SongInfo extends JPanel {
     private String songName;
     private String songArtist;
@@ -34,7 +35,7 @@ public class SongInfo extends JPanel {
         selectListeners();
     }
 
-    // EFFECTS: returns song info
+    // EFFECTS: returns song info in string format
     public String getSongInfo() {
         return songPanel.getSongName() + " : " + songPanel.getSongArtist() + " : " + songPanel.getSongGenre() + " : "
                 + songPanel.getSongRank();

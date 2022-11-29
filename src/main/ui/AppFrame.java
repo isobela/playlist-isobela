@@ -1,10 +1,14 @@
 package ui;
 
+import model.EventLog;
+import model.LogException;
+import model.Event;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
+// represents AppFrame with a title, playlist, button panel, songs, and a song panel.
 public class AppFrame extends JFrame {
     private TitleBar title;
     private List playlist;
@@ -16,6 +20,7 @@ public class AppFrame extends JFrame {
     private SongPanel songPanel;
     private JButton save;
     private JButton load;
+    private JButton printLog;
     private SongInfo song;
 
 
@@ -25,7 +30,6 @@ public class AppFrame extends JFrame {
         this.setSize(400, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
 
         title = new TitleBar();
         btnPanel = new ButtonPanel();
@@ -43,13 +47,19 @@ public class AppFrame extends JFrame {
         changeRank = btnPanel.getChangeRank();
         save = btnPanel.getSavePlaylist();
         load = btnPanel.getLoadPlaylist();
-
+        printLog = btnPanel.getPrintLog();
 
         addAndDelete();
         saveAndLoad();
         changeSelectedRank();
+        printLogToScreen();
+        printToConsole();
+
+
 
     }
+
+
 
 
     // MODIFIES: this
@@ -59,9 +69,7 @@ public class AppFrame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 song = new SongInfo(songPanel);
-                playlist.add(song);
-                new DisplayImage();
-                revalidate();
+                playlist.addSongToPanel(song);
             }
         });
         deleteSong.addMouseListener(new MouseAdapter() {
@@ -109,11 +117,50 @@ public class AppFrame extends JFrame {
 
     }
 
+    public void printLogToScreen() {
+        printLog.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                ScreenPrinter sp = new ScreenPrinter(AppFrame.this);
+                AppFrame.this.add(sp, BorderLayout.CENTER);
+                sp.printLog(EventLog.getInstance());
+
+
+            }
+        });
+
+    }
+
+
+
+
+
     // MODIFIES: this
     // EFFECTS: updates playlist in appframe
     public void updatePlaylist() {
         this.add(playlist, BorderLayout.CENTER);
     }
+
+    public void printEvents() {
+        String events = " ";
+        for (Event e: EventLog.getInstance()) {
+            events = events + e.getDescription() + " ";
+            System.out.println(e);
+        }
+
+    }
+
+    public void printToConsole() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printEvents();
+            }
+        });
+
+    }
+
+
 
 
 

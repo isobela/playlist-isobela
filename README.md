@@ -30,4 +30,14 @@ to change the rank of selected song. You can select and change rank for more tha
 - You can save the state of my application by clicking Save Playlist.
 - You can load the state of my playlist by clicking Load Playlist.
 
+## Phase 4: Task 2
+Tue Nov 29 10:18:22 MST 2022
+Added song:Take A Slice
+Tue Nov 29 10:18:59 MST 2022
+Added song:All I Want For Christmas
+Tue Nov 29 10:20:12 MST 2022
+Added song:Young Dumb and Broke
+Tue Nov 29 10:20:16 MST 2022
+Removed song: Young Dumb and Broke
+
 

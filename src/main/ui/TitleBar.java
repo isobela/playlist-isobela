@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+// represents title bar for appframe.
 public class TitleBar extends JPanel {
     // MODIFIES: this
     // EFFECTS: constructs title bar

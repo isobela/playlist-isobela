@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+// represents a song panel with a place to enter name, artist, genre and rank.
 public class SongPanel extends JPanel {
     private JTextField songName;
     private JTextField songArtist;

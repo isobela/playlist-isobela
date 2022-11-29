@@ -8,6 +8,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
+// represents a image
 public class DisplayImage {
 
     // MODIFIES: this
