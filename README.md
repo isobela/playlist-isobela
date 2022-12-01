@@ -40,4 +40,11 @@ Added song:Young Dumb and Broke
 Tue Nov 29 10:20:16 MST 2022
 Removed song: Young Dumb and Broke
 
-
+## Phase 4: Task 3
+Looking at my UML diagram and at my project design, one thing I would think to 
+change is the amount of classes included in the ui package. Each component of my app frame had its
+own class but looking back I realized that some of these classes didn't
+have to be its own class. For example having a separate class for my TitleBar is 
+unnecessary as It doesn't have to be its own class and could have just been implemented insie AppFrame. 
+However, having separate classes for the bigger components
+of my app frame such as my SongInfo class made implementing my GUI easier.

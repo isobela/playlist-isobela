@@ -55,8 +55,6 @@ public class AppFrame extends JFrame {
         printLogToScreen();
         printToConsole();
 
-
-
     }
 
 
@@ -117,6 +115,8 @@ public class AppFrame extends JFrame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: prints log of events to GUI
     public void printLogToScreen() {
         printLog.addMouseListener(new MouseAdapter() {
             @Override
@@ -150,6 +150,7 @@ public class AppFrame extends JFrame {
 
     }
 
+    // EFFECTS: prints events to console when window closes
     public void printToConsole() {
         addWindowListener(new WindowAdapter() {
             @Override

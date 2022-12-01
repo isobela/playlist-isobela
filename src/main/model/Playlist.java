@@ -7,7 +7,7 @@ import persistence.Writable;
 import java.util.ArrayList;
 import java.util.List;
 
-// Represents a playlist with its songs.
+// represents a playlist with its songs.
 public class Playlist implements Writable {
     private List<Song> songs;
 

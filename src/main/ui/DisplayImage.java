@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-// represents a image
+// represents a image to be displayed
 public class DisplayImage {
 
     // MODIFIES: this

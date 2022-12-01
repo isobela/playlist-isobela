@@ -75,6 +75,8 @@ public class List extends JPanel {
         return playlist;
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a song to song panel, from SongInfo
     public void addSongToPanel(SongInfo song) {
         Song songType = new Song(song.getSongName(), song.getSongArtist(),song.getSongGenre(),
                 Integer.parseInt(song.getSongRank()));
